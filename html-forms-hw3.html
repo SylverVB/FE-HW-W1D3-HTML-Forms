@@ -1,0 +1,180 @@
+<!-- Lesson 3: Assignments | HTML Forms
+
+1. Exploring New HTML5 Input Types
+
+Task 1: Implementing Email Input
+
+- Create an HTML form with a text input field of type email.
+- Add a label and placeholder text to indicate that this input is for an email address.
+- Implement HTML5 validation to ensure that only valid email addresses are accepted.
+- Provide a submit button to allow users to submit their email addresses.
+
+Expected Outcomes: Students should be able to create an email input field and use HTML5 validation for email addresses.
+
+Task 2: Utilizing Number Input
+
+- Now add a number input field to your existing form.
+- Add a label and placeholder text to instruct users to enter a quantity.
+- Use HTML5 attributes to define the minimum and maximum values accepted for this input.
+- (BONUS) Include step attributes for incrementing or decrementing the value.
+
+Expected Outcomes: Students should be able to create a number input field with specified constraints and step increments.
+
+Task 3: Employing Date Input
+
+- Now add a date input field to your existing form.
+- Add a label and placeholder text to indicate that users should select a date.
+- Implement HTML5 attributes to specify the date format and range.
+
+Expected Outcomes: Students should be able to create a date input field and define date format and range using HTML5 attributes.
+
+Task 4: Enhancing User Experience with Range Input
+
+- Now add a range input field to your existing form.
+- Include a label and placeholder text indicating what the range represents (e.g., rating or quantity).
+- Utilize HTML5 attributes to set the minimum and maximum values for the range.
+
+Expected Outcomes: Students should be able to create a range input field, set its constraints.
+
+(BONUS) Task 5: Capturing Color with Color Input
+
+- Lastly, add a color input field to your existing form.
+- Include a label and placeholder text indicating that users should select a color.
+- Utilize the value attribute to set an initial color.
+
+Expected Outcomes: Students should be able to create a color input field and set an initial color using the value attribute. -->
+
+<!-- 2. Building a Comprehensive Web Form
+
+Task 1: Creating a Selection Experience
+
+- Now let's add some different selection features to your form to spice things up.
+- Include a select menu that allows users to choose their favorite programming language from a list of options.
+- Implement a set of radio buttons for users to indicate their level of expertise (beginner, intermediate, advanced).
+- Add checkboxes to let users select their preferred development platforms (web, mobile, desktop).
+
+Expected Outcomes: Students should be able to create a selection experience with select menus, radio buttons, and checkboxes to 
+capture user preferences.
+
+Task 2: Improving Accessibility
+
+- Ensure that all form elements have associated labels using the for attribute.
+- Implement ARIA attributes to enhance accessibility for users with disabilities.
+
+Expected Outcomes: Students should be able to enhance the accessibility of the web form by associating labels with form elements 
+and implementing ARIA attributes.
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SE147 Does Forms</title>
+</head>
+<body>
+    
+    <header>
+        <h1>HTML Forms Practice</h1>
+    </header>
+    <main>
+        
+        <h3>Task 1. Exploring New HTML5 Input Types</h3>
+        
+        <form onSubmit="handlesubmit">
+            <!-- Task 1: Implementing Email Input -->
+            <label for="email">Email:</label>
+            <input 
+                type="email" 
+                id="email" 
+                name="email"
+                placeholder="Your email here"
+                autocomplete="on"
+                pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+                title="Please provide a valid email address"
+                required>
+                <div role="alert" aria-live="assertive"></div>
+            <br> 
+            <!-- Task 2: Utilizing Number Input -->
+            <label for="quantity">Quantity:</label>
+            <input 
+                type="number" 
+                id="quantity" 
+                name="quantity"
+                min="0" 
+                max="20" 
+                step="2"> 
+                <!-- Step="2" defines the increment/decrement steps [BONUS] -->
+                <div role="alert" aria-live="assertive"></div>
+            <br>
+            <!-- Task 3: Employing Date Input -->
+            <label for="date">Date:</label>
+            <input 
+                type="date" 
+                id="date" 
+                name="date"
+                min="2024-01-01"
+                max="2024-12-31">
+            <div role="alert" aria-live="assertive"></div>
+            <br>
+            <!-- Task 4: Enhancing User Experience with Range Input -->
+            <label for="rating">Rating:</label>
+            <input 
+                type="range" 
+                id="rating" 
+                name="rating" 
+                min="0" 
+                max="5"> 
+                <div role="alert" aria-live="assertive"></div>
+            <br>
+            <!-- (BONUS) Task 5: Capturing Color with Color Input -->
+            <label for="carcolor">Color of Your Car:</label>
+            <input 
+                type="color" 
+                id="carcolor" 
+                name="carcolor" 
+                value="#000000">
+            <div role="alert" aria-live="assertive"></div>
+            <br>
+            <button type="submit">Submit</button>
+        </form>
+        <br>
+        <hr>
+        <h3>Task 2. Building a Comprehensive Web Form</h3>
+        <form onSubmit="handlesubmit">
+            <!-- Task 1: Creating a Selection Experience -->
+            <label for="favprogramlanguage">Favorite programming language:</label>
+            <select name="favprogramlanguage" id="favprogramlanguage">
+                <option value="Python">Python</option>
+                <option value="HTML & CSS">HTML & CSS</option>
+                <option value="JavaScript">JavaScript</option>
+                <option value="TypeScript">TypeScript</option>
+            </select>
+            <!-- Task 2: Improving Accessibility -->
+            <div role="alert" aria-live="assertive"></div>
+            <br>
+            <label for="level">Level of Expertise:</label>
+            <label for="beginner">Beginner</label>
+            <input type="radio" id="beginner" name="level" value="Beginner">
+            <label for="intermediate">Intermediate</label>
+            <input type="radio" id="intermediate" name="level" value="Intermediate">
+            <label for="advanced">Advanced</label>
+            <input type="radio" id="advanced" name="level" value="Advanced">
+            <div role="alert" aria-live="assertive"></div>
+            <br>
+            <label for="multiple_platforms">Preferred Development Platforms:</label>
+            <label for="web">Web</label>
+            <input type="checkbox" id="web" name="multiple_platforms" value="Web">
+            <label for="mobile">Mobile</label>
+            <input type="checkbox" id="mobile" name="multiple_platforms" value="Mobile">
+            <label for="desktop">Desktop</label>
+            <input type="checkbox" id="desktop" name="multiple_platforms" value="Desktop">
+            <div role="alert" aria-live="assertive"></div>
+            <br>
+            <button type="reset">Reset</button>
+            <button type="submit">Submit</button>
+        </form>
+    </main>
+</body>
+</html>
